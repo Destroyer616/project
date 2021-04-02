@@ -11,12 +11,28 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh 'mvn test'
             }
         }
-        stage('Deploy') {
+        stage('SonarAnalysis') {
             steps {
-                echo 'Deploying....'
+                echo 'Sonar analysis....'
+                sh 'mvn test    '
             }
+       stage('Nexus'){
+          steps{
+              echo "nexus"
+              sh 'mvn deploy'
+          }
+          
+         stage('Deploy'){
+             steps{
+                 echo 'deploying..'
+                 sh 'docker build'
+             }
+         }
+
+
         }
     }
 }
