@@ -19,12 +19,9 @@ pipeline {
             steps {
                 echo 'packaging....'
                 sh 'mvn package'
+                sh 'sudo cp target/*war /opt/apache-tomcat-7.0.94/webapps/
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'depploying....'
-            }
-        }
+        
     }
 }
