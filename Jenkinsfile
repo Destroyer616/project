@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -11,29 +12,14 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'mvn test'
+                sh 'mvn test
             }
         }
-        stage('SonarAnalysis') {
+        stage('Package') {
             steps {
-                echo 'Sonar analysis....'
-                sh 'mvn test    '
+                echo 'packaging....'
+                sh 'mvn package'
             }
-       stage('Nexus'){
-          steps{
-              echo "nexus"
-              sh 'mvn deploy'
-          }
-          
-         stage('Deploy'){
-             steps{
-                 echo 'deploying..'
-                 sh 'docker build'
-             }
-         }
-
-
         }
     }
-}
 }
