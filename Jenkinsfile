@@ -1,26 +1,38 @@
-
-pipeline {
-    agent any
-
-    stages {
-        stage('Validate') {
-            steps {
-                echo 'Validate Code'
-                sh 'mvn compile'
+pipeline { 
+    environment { 
+        registry = "destroyer616/jenkinsproject" 
+        registryCredential = 'destroyer616' 
+        dockerImage = '' 
+    }
+    agent any 
+    stages { 
+        stage('Cloning our Git') { 
+            steps { 
+                git 'https://github.com/Destroyer616/project.git' 
+            }
+        } 
+        stage('Building our image') { 
+            steps { 
+                script { 
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+                }
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-                sh 'mvn test'
+        stage('Deploy our image') { 
+            steps { 
+                script { 
+                    docker.withRegistry( '', registryCredential ) { 
+                        dockerImage.push() 
+                    }
+                } 
             }
-        }
-        stage('Package') {
-            steps {
-                echo 'packaging....'
-                sh 'mvn package'
+        } 
+        stage('Cleaning up') { 
+            steps { 
+                sh "docker rmi $registry:$BUILD_NUMBER" 
             }
-        }
-        
+        } 
     }
 }
+
+
