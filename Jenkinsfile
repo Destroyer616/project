@@ -10,8 +10,7 @@ pipeline {
                 sh 'mvn package'
                 echo "packaging..."
             }
-        }
-        stage('Docker'){
+            stage('Docker'){
             steps{
                 def app
             }
@@ -44,6 +43,8 @@ pipeline {
               }   
         } 
            }
+        }
+        
         }
         }
     }
