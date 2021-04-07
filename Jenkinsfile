@@ -10,9 +10,11 @@ pipeline {
                 sh 'mvn package'
                 echo "packaging..."
             }
+        }
             stage('Docker'){
             steps{
                 def app
+            }
             }
            
       stage('Clone repository') { 
@@ -40,14 +42,12 @@ pipeline {
             docker.withRegistry('https://registry.hub.docker.com', 'git') {                  
                 app.push("${env.BUILD_NUMBER}")            
                 app.push("latest")        
-              }   
-        } 
-           }
-        }
-        
-        }
+              }
         }
     }
+        } 
+
+   }
 
 
 
