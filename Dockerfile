@@ -1,4 +1,4 @@
-FROM centos as tomcat
+FROM centos
 
 MAINTAINER saikiran.reddy916@gmail.com
 
