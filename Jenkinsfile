@@ -11,11 +11,7 @@ pipeline {
                 echo "packaging..."
             }
         }
-
-    }
-}
-
-tomcat {    
+     tomcat {    
       def app     
       stage('Clone repository') {               
              checkout scm    
@@ -35,5 +31,10 @@ tomcat {
               }    
            }
         }
+
+    }
+}
+
+
 
 
