@@ -11,7 +11,8 @@ pipeline {
                 echo "packaging..."
             }
         }
-     tomcat {    
+       stage('Docker'){
+            tomcat {    
       def app     
       stage('Clone repository') {               
              checkout scm    
@@ -31,7 +32,7 @@ pipeline {
               }    
            }
         }
-
+        }
     }
 }
 
