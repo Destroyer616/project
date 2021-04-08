@@ -19,6 +19,7 @@ pipeline {
                 echo 'Deploying....'
                 sh 'mvn package'
             }
+        }
          stage('SSH into the server') {
             steps {
                 withCredentials([sshUserPrivateKey(
@@ -29,8 +30,7 @@ pipeline {
                     '''
                 }
             }
-        }
-        }
+    }
     }
 }
 
