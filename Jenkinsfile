@@ -15,8 +15,8 @@ node {
         sh 'mvn package'
     }
     stage('send war dockerfile'){
-        sshPut remote: remote, from: 'target/*.war', into: '/opt'
-        sshPut remote: remote, from: '/var/lib/jenkinsproject/workspace/Dockerfile' , into: '/opt'
+        sshPut remote: remote, from: '/var/lib/jenkins/workspace/project/target/*.war', into: '/opt'
+        sshPut remote: remote, from: '/var/lib/jenkins/workspace/project' , into: '/opt'
     }
   stage('Remote SSH') {
       sshCommand remote: remote, command: "ls /opt"
