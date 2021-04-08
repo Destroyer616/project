@@ -26,7 +26,7 @@ pipeline {
                     credentialsId: 'ansible',
                     keyFileVariable: 'KEY_FILE')]) {
                     sh '''
-                    ssh root@172.31.44.184 docker images
+                    ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" root@172.31.44.184 docker images
                     '''
                 }
             }
