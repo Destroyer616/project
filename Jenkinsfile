@@ -22,14 +22,11 @@ pipeline {
         }
          stage('SSH into the server') {
             steps {
-                withCredentials([sshUserPrivateKey(
-                    credentialsId: 'ansible',
-                    keyFileVariable: 'KEY_FILE')]) {
                     sh '''
                     ssh root@172.31.44.184 docker images
-                    '''
-                }
+                    '''    
             }
+    }
     }
     }
 }
