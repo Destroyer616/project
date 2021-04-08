@@ -6,9 +6,9 @@ WORKDIR /opt
 RUN mkdir /opt/tomcat/
 RUN yum -y install java unzip
 
-RUN curl -O https://downloads.apache.org/tomcat/tomcat-9/v9.0.44/bin/apache-tomcat-9.0.44.zip
-RUN unzip apache-tomcat-9.0.44.zip
-RUN mv apache-tomcat-9.0.44/* /opt/tomcat/.
+RUN curl -O https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.45/bin/apache-tomcat-9.0.45.zip
+RUN unzip apache-tomcat-9.0.45.zip
+RUN mv apache-tomcat-9.0.45/* /opt/tomcat/
 ADD *.war /opt/tomcat/webapps/
 
 
