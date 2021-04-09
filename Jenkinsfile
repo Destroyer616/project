@@ -5,7 +5,7 @@ node {
   remote.user = 'root'
   remote.password = 'csk@2020'
   remote.allowAnyHosts = true
-  remote.fileTransfer = SCP
+  remote.fileTransfer = "SCP"
     stage('Compile'){
         sh 'mvn compile'
     }
