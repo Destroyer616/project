@@ -16,7 +16,7 @@ WORKDIR /opt/tomcat/webapps
 
 EXPOSE 8080
 
-CMD ["/opt/tomcat/bin/catalina.sh", "run"]
+CMD ["sh","/opt/tomcat/bin/catalina.sh", "run"]
 
 
 
