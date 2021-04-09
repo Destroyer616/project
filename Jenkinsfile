@@ -28,6 +28,9 @@ node {
       sshCommand remote: remote, command: "docker image rmi $JOB_NAME:v1.$BUILD_ID destroyer616/$JOB_NAME:v1.$BUILD_ID destroyer616/$JOB_NAME:latest"
   
   }
+  stage('execute ansible playbook'){
+    sshCommand remote: remote, command: "ansible-playbook /opt/ansible.yml'
+  }
    
    
 }
