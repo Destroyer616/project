@@ -21,12 +21,9 @@ node {
     }
   stage('Remote SSH') {
       sshCommand remote: remote, command: "cd /opt"
-      sshCommand remote: remote, command: "docker image build -t $JOB_NAME:v1.$BUILD_ID ."
-      sshCommand remote: remote, command: "docker image tag $JOB_NAME:v1.$BUILD_ID destroyer616/$JOB_NAME:v1.$BUILD_ID"
-      sshCommand remote: remote, command: "docker image tag $JOB_NAME:v1.$BUILD_ID destroyer616/$JOB_NAME:latest"
-      sshCommand remote: remote, command: "docker image push destroyer616/$JOB_NAME:v1.$BUILD_ID"
-      sshCommand remote: remote, command: "docker image push destroyer616/$JOB_NAME:latest"
-      sshCommand remote: remote, command: "docker image rmi $JOB_NAME:v1.$BUILD_ID destroyer616/$JOB_NAME:v1.$BUILD_ID destroyer616/$JOB_NAME:latest"
+      sshCommand remote: remote, command: "pwd"
+      
+      
       
   }
    
