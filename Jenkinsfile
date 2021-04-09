@@ -15,10 +15,7 @@ node {
     stage('package'){
         sh 'mvn package'
     }
-  stage('send war dockerfile'){
-        sshPut remote: remote, from: '/var/lib/jenkins/workspace/project/target/WebAppCal*.war' , into: '/opt'
-      
-    }
+    
     stage('send dockerfile'){
         sshPut remote: remote, from: '/var/lib/jenkins/workspace/project/Dockerfile' , into: '/opt'
       
