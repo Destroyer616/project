@@ -20,11 +20,10 @@ node {
       
     }
   stage('Remote SSH') {
-      sshCommand remote: remote, command: "cd /opt"
+      sshCommand remote: remote, command: "cd /root/opt"
+      sshCommand remote: remote, command: "ls"
       sshCommand remote: remote, command: "pwd"
-      
-      
-      
+  
   }
    
    
