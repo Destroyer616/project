@@ -29,7 +29,7 @@ node {
   
   }
   stage('execute ansible playbook'){
-    sshCommand remote: remote, command: "ansible-playbook /opt/ansible.yml'
+    sshCommand remote: remote, command: "ansible-playbook /opt/ansible.yml"
   }
    
    
