@@ -9,7 +9,7 @@ RUN yum -y install java unzip
 RUN curl -O https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.45/bin/apache-tomcat-9.0.45.zip
 RUN unzip apache-tomcat-9.0.45.zip
 RUN mv apache-tomcat-9.0.45/* /opt/tomcat/
-COPY /home/centos/project/*.war /opt/tomcat/webapps/
+COPY /home/centos/project/WebAppCal-1.0.war /opt/tomcat/webapps/
 
 
 WORKDIR /opt/tomcat/webapps
