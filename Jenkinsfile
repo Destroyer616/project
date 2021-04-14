@@ -23,14 +23,14 @@ pipeline {
           
        stage('send war file'){
            steps{
-        sh 'cp /var/lib/jenkins/workspace/project/target/*.war /home/centos/project'
+        sh 'sudo cp /var/lib/jenkins/workspace/project/target/*.war /home/centos/project'
            }
       
     }
     
     stage('send dockerfile'){
         steps{
-        sh 'cp /var/lib/jenkins/workspace/project/Dockerfile /home/centos/project'
+        sh 'sudo cp /var/lib/jenkins/workspace/project/Dockerfile /home/centos/project'
         }
       
     }
