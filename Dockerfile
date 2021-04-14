@@ -9,7 +9,7 @@ RUN yum -y install java unzip
 RUN curl -O https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.45/bin/apache-tomcat-9.0.45.zip
 RUN unzip apache-tomcat-9.0.45.zip
 RUN mv apache-tomcat-9.0.45/* /opt/tomcat/
-COPY /var/lib/jenkins/workspace/project/target/*.war /opt/tomcat/webapps/
+ADD target/*.war /opt/tomcat/webapps/
 
 
 WORKDIR /opt/tomcat/webapps
