@@ -1,15 +1,6 @@
 node {
-    stage('clean'){
-        sh 'mvn clean --file *.pom'
-    }
     stage('Compile'){
-        sh 'mvn compile'
-    }
-    stage('test'){
-        sh 'mvn test'
-    }
-    stage('package'){
-        sh 'mvn package'
+        sh 'mvn clean install'
     }
   stage('send war file'){
         sh 'cp /var/lib/jenkins/workspace/project/target/*.war /home/centos/project'
