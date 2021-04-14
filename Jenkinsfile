@@ -21,12 +21,6 @@ pipeline {
             }
         }
           
-       stage('send war file'){
-           steps{
-        sh 'sudo cp /var/lib/jenkins/workspace/project/target/*.war /home/centos/'
-           }
-      
-    }
     
     stage('send dockerfile'){
         steps{
