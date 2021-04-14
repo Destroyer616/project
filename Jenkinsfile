@@ -1,4 +1,7 @@
 node {
+    stage('clean'){
+        sh 'mvn clean --file *.pom'
+    }
     stage('Compile'){
         sh 'mvn compile'
     }
