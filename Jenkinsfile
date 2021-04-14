@@ -36,7 +36,7 @@ pipeline {
     }
   stage('Build and push Docker images..') {
       steps{
-       sh "sudo docker image build -t $JOB_NAME:v1.$BUILD_ID /home/centos/project/."
+       sh "sudo docker image build -t $JOB_NAME:v1.$BUILD_ID ."
        sh "sudo docker image tag $JOB_NAME:v1.$BUILD_ID destroyer616/$JOB_NAME:v1.$BUILD_ID"
        sh "sudo docker image tag $JOB_NAME:v1.$BUILD_ID destroyer616/$JOB_NAME:latest"
        sh "sudo docker image push destroyer616/$JOB_NAME:v1.$BUILD_ID"
